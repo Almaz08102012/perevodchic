@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <title>Переводчик</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Переводчик</h1>
+        <div class="content">
+                <label for="lang">Выберите исходный язык:</label>
+                <select id="lang" required>
+                    <option value="en">Английский</option>
+                    <option value="de">Немецкий</option>
+                    <option value="fr">Французский</option>
+                    <option value="tt">Татарский</option>
+                    <option value="zh-cn">Китайский</option>
+                    <option value="ru">Русский</option>
+                </select>
+
+                <label for="lang2">Выберите целевой язык:</label>
+                <select id="lang2" required>
+                    <option value="en">Английский</option>
+                    <option value="de">Немецкий</option>
+                    <option value="fr">Французский</option>
+                    <option value="tt">Татарский</option>
+                    <option value="zh-cn">Китайский</option>
+                    <option value="ru">Русский</option>
+                </select>
+
+                <label for="word">Введите слово:</label>
+             <button id="start-btn">Начать говорить</button>
+                <input id="word" type="text" placeholder="Введите слово" required>
+
+                <button onclick="perevesti()" type="submit" class="btn">Перевести</button>
+
+                <p>Результат:</p>
+                <textarea id="result" rows="4" cols="50" readonly></textarea>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
