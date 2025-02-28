@@ -11,7 +11,7 @@ if (!SpeechRecognition) {
   recognition.interimResults = false; // Показывать промежуточные результаты
 
   // При успешном распознавании
-  recognition.addEventListener('word', (event) => {
+  recognition.addEventListener('result', (event) => {
     const transcript = event.results[0][0].transcript;
     document.getElementById('word').value = transcript;
     console.log('Распознано:', transcript);
@@ -32,11 +32,17 @@ function perevesti(){
 let val = document.getElementById("lang").value
 let colvo = document.getElementById("word").value
 let val_2 = document.getElementById("lang2").value
-fetch(`http://127.0.0.1:5000/translate?text=${colvo}&lang=${val_2}`)
+document.getElementById('loading').style.display = 'flex';
+document.getElementById('result').style.display = 'none';
+fetch(`http://rafailvv.online:5001/translate?text=${colvo}&lang=${val_2}`)
     .then(resp => resp.json())
     .then(data => {
         let kurs=data["translated_text"]
         document.getElementById("result").value = kurs
         console.log(data)
+    }).finally(() => {
+    document.getElementById('loading').style.display = 'none';
+    document.getElementById('result').style.display = 'flex';
     })
+
 }
