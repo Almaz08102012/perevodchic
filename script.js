@@ -34,7 +34,7 @@ let colvo = document.getElementById("word").value
 let val_2 = document.getElementById("lang2").value
 document.getElementById('loading').style.display = 'flex';
 document.getElementById('result').style.display = 'none';
-fetch(`https://rafailvv.online:8443/translate?text=${colvo}&lang=${val_2}`)
+fetch(`https://vpn.rafailvv.ru:8443/translate?text=${colvo}&lang=${val_2}`)
     .then(resp => resp.json())
     .then(data => {
         let kurs=data["translated_text"]
