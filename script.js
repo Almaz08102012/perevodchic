@@ -20,10 +20,14 @@ if (!SpeechRecognition) {
   // При завершении распознавания
   recognition.addEventListener('end', () => {
     console.log('Распознавание завершено');
+  document.getElementById('start-btn').style.backgroundColor=""
+  document.getElementById('start-btn').textContent="Начать говорить"
   });
 
   // Запуск распознавания по нажатию кнопки
   document.getElementById('start-btn').addEventListener('click', () => {
+  document.getElementById('start-btn').style.backgroundColor="red"
+  document.getElementById('start-btn').textContent="Говорите..."
     recognition.start();
   });
 }
