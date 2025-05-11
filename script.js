@@ -1,10 +1,19 @@
 // Проверяем поддержку браузером
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
 window.Telegram.WebApp.requestFullscreen();
+function isDesktop() {
+    const userAgent = navigator.userAgent.toLowerCase();
+    return userAgent.includes("windows") || userAgent.includes("macintosh") || userAgent.includes("linux");
+}
+console.log(isDesktop());
+if (!isDesktop()) {
+    document.querySelector('.container').style.marginTop = '90px';
+}
 if (!SpeechRecognition) {
   alert("Ваш браузер не поддерживает Web Speech API");
 } else {
   const recognition = new SpeechRecognition();
+
 
   // Устанавливаем язык распознавания
   recognition.lang = 'ru-RU'; // Русский язык
