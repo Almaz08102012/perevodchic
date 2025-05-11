@@ -1,6 +1,6 @@
 // Проверяем поддержку браузером
 const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-
+window.Telegram.WebApp.requestFullscreen();
 if (!SpeechRecognition) {
   alert("Ваш браузер не поддерживает Web Speech API");
 } else {
